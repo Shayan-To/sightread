@@ -46,7 +46,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
-    "format": "prettier --write **/*.{ts,tsx}",
+    "format": "prettier --write '**/*.{ts,tsx}'",
     "gen": "cd scripts && ts-node generate.ts && cd ..",
     "render": "RENDER=1 ts-node --project scripts/tsconfig.json scripts/render.ts --huge-max-old-generation-size",
     "test": "bun test",
@@ -66,5 +66,6 @@
   },
   "trustedDependencies": [
     "skia-canvas"
-  ]
+  ],
+  "packageManager": "yarn@4.9.2"
 }
