@@ -1,8 +1,8 @@
+import { roundCorner, roundRect } from '@/features/drawing'
 import { getKey, getOctave, isBlack, isWhite } from '@/features/theory'
-import { roundRect, roundCorner } from '@/features/drawing'
+import { isNumber } from '@/utils'
 import midiState from '../midi'
 import { isPointerDown } from '../pointer'
-import { isNumber } from '@/utils'
 import { getImages } from '../SongVisualization/images'
 import { isDragging } from '../SongVisualization/touchscroll'
 

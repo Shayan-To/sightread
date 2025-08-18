@@ -1,6 +1,7 @@
 'use client'
-import { useState, useCallback, useEffect } from 'react'
+
 import { isBrowser } from '@/utils'
+import { useCallback, useEffect, useState } from 'react'
 import Storage from './storage'
 
 export function usePersistedState<T>(key: string, init: T): [T, (state: T) => void] {

@@ -75,7 +75,6 @@ export function disableOutputMidiDevice(deviceParam: WebMidi.MIDIOutput) {
 
 setupMidiDeviceListeners()
 
-
 // Sets up listeners for all non-virtual MIDI input devices.
 // Skips "through" ports (often used for routing/echo) to avoid feedback loops.
 // Output devices are ignored by default and must be enabled manually.

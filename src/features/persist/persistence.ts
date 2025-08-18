@@ -54,7 +54,7 @@ export async function saveSong(file: File, title: string, artist: string): Promi
 
 export function deleteSong(id: string) {
   const songLibrary = getUploadedLibrary()
-  setUploadedLibrary(songLibrary.filter((s => s.id !== id)))
+  setUploadedLibrary(songLibrary.filter((s) => s.id !== id))
   Storage.delete(id)
 }
 
