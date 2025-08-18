@@ -6,11 +6,17 @@ A free and open-source webapp for learning to play Piano. Play music without nee
 
 ## Contributing
 
+Enable `yarn` (might need elevation/root access)
+
+```
+corepack enable
+```
+
 To start the app
 
 ```
-npm install
-npm run dev
+yarn
+yarn dev
 ```
 
 ## Testing
@@ -20,5 +26,5 @@ We use bun for testing
 > To install, follow https://bun.sh/docs/installation
 
 ```
-npm run test
+yarn test
 ```
