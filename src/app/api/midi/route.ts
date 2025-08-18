@@ -5,6 +5,15 @@ import type { NextRequest } from 'next/server'
 const songManifest = require('@/manifest.json')
 const map: Map<string, SongMetadata> = new Map(songManifest.map((s: SongMetadata) => [s.id, s]))
 
+const fsSupported = (() => {
+  try {
+    fs.accessSync('public', fs.constants.R_OK)
+    return true
+  } catch {
+    return false
+  }
+})()
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const { id, source } = Object.fromEntries(searchParams)
@@ -36,7 +45,7 @@ export async function GET(request: NextRequest) {
 
   // In development we have access to the filesystem but can't hit localhost with https.
   // When deployed we don't have access to fs, but can proxy to the hosted /public.
-  if (process.env.NODE_ENV === 'development') {
+  if (fsSupported || process.env.NODE_ENV === 'development') {
     const body = fs.readFileSync(`public/${path}`)
     const basename = path.substring(path.lastIndexOf('/') + 1)
     return new Response(body, {
